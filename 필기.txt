@@ -1,0 +1,189 @@
+1.
+    a = int(input('첫번째:'))
+    b = int(input('두번째:'))
+    c = int(input('세번째:'))
+    d = int(input('네번째:'))
+
+    def max4(a,b,c,d):
+        maximum = a
+        if b>maximum:
+            maximum = b
+        if c>maximum:
+            maximum = c
+        if d>maximum:
+            maximum = d
+        return maximum
+    
+    print(f'최대값은 {max4(a,b,c,d)}입니다.')
+
+
+2.
+    def waterPay(company,b):       
+
+        if company == 'a':
+            fare = b *100            
+        elif company == 'b':
+            if b <=50:
+                fare = b *150               
+            else:
+                fare = b *75            
+        return fare
+    
+    a = input('a회사인지 b회사인지 입력 :')
+    b = int(input('수도량을 입력 : '))
+
+    
+    print(f'최대값은 {waterPay(a,b)}입니다.')
+
+3.
+    print('a부터 b까지 정수의 합을 구합니다.')
+    a = int(input('정수 a를 입력하시오'))
+    b = int(input('정수 b를 입력하시오'))
+
+    if a >b:
+        a,b = b, a
+    
+    sum =0
+
+    for i in range (a, b):
+        print(f'{i} + ', end='')
+        sum += i
+    print(f'{i+1} = ', end='')
+    sum += b
+    print(sum)
+
+4.
+예제를 거꾸로 하려면 1문장 지우기.
+
+
+실습 1.
+
+    def electricPay(elec):
+            if elec <100:
+                pay = 410 + 60.7 * elec
+            elif elec <=200:
+                pay = 910 + 60.7*100 + 125.9 * (elec -100)
+            else:
+                pay = 1600 + 60.7*100 + 125.9 *100 + 187.9 *(elec -200)
+            return pay
+
+        
+    elec = int(input('전기 사용량을 입력하시오.'))         
+    real_pay = int (electricPay(elec) * 1.137)
+    print(f'전기요금은 {real_pay}입니다.')
+
+실습 2.
+
+    _input = int(input('몇 개를 출력할까요?'))
+
+    if _input % 2 ==0:
+        for i in range(_input//2):
+            print('+-', end='')
+    else:
+        for i in range(_input//2):
+            print('+-', end='')
+        print('+', end='')
+    print()
+
+실습 3.
+
+    for i in range (1, 13):
+        if i!=8:
+            print(f'{i} ', end='')
+    print()
+
+실습 4.
+
+    _input = int(input('원하는 숫자를 입력하시오'))
+    checker = 0
+    for root in range(2, _input+1):
+        for pwr in range (2,6):
+            if _input == root **pwr:
+                checker = checker + 1
+                print(f'{root} , {pwr}')
+                break
+
+    if (checker == 0):
+        print('없음')
+
+
+추가실습 0.
+    a = int(input('a의 값은?'))
+    b = int(input('b의 값은?'))
+
+    def solution(a, b):
+        answer = 1
+        for i in range (2, a+b):
+            if a % i ==0 and b % i ==0:
+                answer = i
+     
+        return answer
+
+    c = solution(a,b)
+    print(c)
+
+추가실습 1.
+
+    a = int(input('a의 값은?'))
+    b = int(input('b의 값은?'))
+
+    def solution(a, b):  
+        for i in range(2, a*b+1):   # 범위를 2부터 하지말고 a와 b중 큰값으로 설정으로 바꾸자
+            if i % a == 0 and i % b ==0:
+                answer = i
+                break
+        return answer
+
+    c = solution(a,b)
+    print(c)
+
+추가실습 2.
+    N = int(input('0~99사이의 숫자 입력'))     #다시 풀어보자 str과 int 이용해서
+
+    # N이 10보다 클때
+    # N//10 = 십의 자리 숫자
+    # N%10 = 일의 자리 숫자
+
+    if (N <10):
+        N = N *10
+        checker = 10 * (N % 10) + (N//10 + N % 10) % 10
+    else:
+        checker = 10 * (N % 10) + (N//10 + N % 10) % 10
+
+    count = 1
+    for i in range(10000):
+        if (checker == N):
+            break
+        elif (checker < 10):
+            checker = checker *10
+            checker = 10 * (checker % 10) + (checker//10 + checker % 10) % 10
+            count += 1
+        else:
+            checker = 10 * (checker % 10) + (checker//10 + checker % 10) % 10
+            count += 1   
+
+    print(count)
+
+추가실습 3.
+    left = int(input('left값은?'))
+    right = int(input('right값은?'))
+
+    def solution(left, right):
+        sum = 0
+        for i in range (left, right +1):
+            checker = 0
+            for j in range(2, i+1):
+                if (j*j == i):
+                    checker = 1
+            if checker == 0:
+                sum += i
+            else:
+                sum -= i
+        
+        return sum
+
+    c = solution(left, right)
+    print(c)
+
+
+
