@@ -1,0 +1,36 @@
+    def solution(lottos, win_nums):
+        count = 0   # 0을 제외하고 맞은 개수
+        zero = 0  # 0의 개수
+        max_match = 0 # 최고 맞은 개수
+        min_match = 0 # 최소 맞은 개수
+
+        for i in range(6):
+            for j in range(6):
+                if lottos[i] == win_nums[j]:
+                    count += 1
+
+        for i in range(6):
+            if lottos[i] == 0:
+                zero += 1
+
+        max_match = count + zero
+        min_match = count
+        answer = []
+
+        if (max_match > 1 and min_match >1):
+            answer.append(7-max_match)   # 5등 이상의 등수에서
+            answer.append(7-min_match)   # 맞춘 갯수 + 등수 = 7
+        elif (max_match > 1 and min_match <=1):
+            answer.append(7-max_match)
+            answer.append(6)
+        else:
+            answer.append(6)
+            answer.append(6)
+
+        
+        return answer
+
+    lottos = [44, 1, 0, 0, 31, 25]
+    win_nums = [31, 10, 45, 1, 6, 19]
+    answer = solution(lottos, win_nums)
+    print(answer)
