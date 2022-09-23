@@ -1,0 +1,8 @@
+path: /content/datasets/street  # dataset root dir
+train: images/train  # train images (relative to 'path') 30 images
+val: images/train  # val images (relative to 'path') 30 images
+test:  # test images (optional)
+
+# Classes
+nc: 3  # number of classes
+names: ['Lion_King', 'Lion_Queen', 'Lion_Baby']  # class names
